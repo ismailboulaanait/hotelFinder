@@ -19,6 +19,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.swing.JOptionPane;
 import service.UserService;
 
@@ -99,7 +100,17 @@ public class LoginController implements Initializable {
         if (res < 0) {
             JOptionPane.showMessageDialog(null, "invalid username or password", "error", JOptionPane.ERROR_MESSAGE);
         } else if (res == 1) {
-            JOptionPane.showMessageDialog(null, "valid", "info", JOptionPane.INFORMATION_MESSAGE);
+             try {
+                Platform.setImplicitExit(false);
+                Parent root1;
+                root1 = FXMLLoader.load(getClass().getResource("admin.fxml"));
+                Stage stage = new Stage();
+                stage.setScene(new Scene(root1));
+                stage.initStyle(StageStyle.TRANSPARENT);
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (res == 2) {
             try {
                 Platform.setImplicitExit(false);
@@ -107,6 +118,7 @@ public class LoginController implements Initializable {
                 root1 = FXMLLoader.load(getClass().getResource("search.fxml"));
                 Stage stage = new Stage();
                 stage.setScene(new Scene(root1));
+                stage.initStyle(StageStyle.TRANSPARENT);
                 stage.show();
             } catch (Exception e) {
                 e.printStackTrace();

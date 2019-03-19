@@ -5,7 +5,7 @@
  */
 package view;
 
-import helper.HotelFxHelper;
+import helper.HotelHelper;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -25,9 +25,9 @@ public class SearchController implements Initializable {
     
     @FXML
     private TableView hotelTable = new TableView();
-    private HotelFxHelper hotelFxHelper;
+    private HotelHelper hotelFxHelper;
     private void initHelper(){
-        hotelFxHelper= new HotelFxHelper(hotelTable, hotelService.findAll());
+        hotelFxHelper= new HotelHelper(hotelTable, hotelService.findAll());
     }
     /**
      * Initializes the controller class.

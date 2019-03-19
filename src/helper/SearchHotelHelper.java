@@ -5,22 +5,22 @@ import java.util.List;
 
 import javafx.scene.control.TableView;
 
-public class HotelFxHelper extends AbstractFxHelper<Hotel> {
+public class SearchHotelHelper extends AbstractFxHelper<Hotel> {
 
     private static AbstractFxHelperItem[] titres;
 
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("hotel", "id"),
-            new AbstractFxHelperItem("phone number", "phone")};
+            new AbstractFxHelperItem("NOM HOTEL", "nom"),
+            new AbstractFxHelperItem("PHONE", "phone")};
     }
 
-    public HotelFxHelper(TableView<Hotel> table, List<Hotel> list) {
+    public SearchHotelHelper(TableView<Hotel> table, List<Hotel> list) {
         super(titres, table, list);
     }
 
-    public HotelFxHelper(TableView<Hotel> table) {
+    public SearchHotelHelper(TableView<Hotel> table) {
         super(titres, table);
     }
 

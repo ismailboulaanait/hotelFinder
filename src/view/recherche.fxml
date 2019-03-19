@@ -52,68 +52,6 @@
       </AnchorPane>
       <AnchorPane layoutX="200.0" prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #6b6767;">
          <children>
-            <Pane fx:id="pan_ajouterHotel" prefHeight="450.0" prefWidth="507.0" style="-fx-background-color: #6b6767;">
-               <children>
-                  <Label layoutX="41.0" layoutY="63.0" prefHeight="28.0" prefWidth="93.0" text="PAYS" textFill="#f3f8f5">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox layoutX="179.0" layoutY="64.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
-                  <Label layoutX="41.0" layoutY="118.0" prefHeight="28.0" prefWidth="93.0" text="VILLE" textFill="#f3f8f5">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox layoutX="179.0" layoutY="119.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
-                  <Label layoutX="41.0" layoutY="171.0" prefHeight="28.0" prefWidth="93.0" text="CATEGORIE" textFill="#f3f8f5">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <ComboBox layoutX="179.0" layoutY="172.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
-                  <Label layoutX="41.0" layoutY="225.0" prefHeight="28.0" prefWidth="93.0" text="NOM HOTEL" textFill="#f3f8f5">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="41.0" layoutY="278.0" prefHeight="28.0" prefWidth="93.0" text="PHONE" textFill="#f3f8f5">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="179.0" layoutY="227.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
-                  <TextField layoutX="179.0" layoutY="279.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
-                  <Button layoutX="179.0" layoutY="341.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="Ajouter" textFill="#f3f8f5">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
-            <Pane fx:id="pan_mesHotel" accessibleHelp="ll" prefHeight="450.0" prefWidth="507.0" style="-fx-background-color: #6b6767;">
-               <children>
-                  <Button layoutX="85.0" layoutY="158.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="376.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="search" textFill="#fcfcfc">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <TableView layoutX="85.0" layoutY="235.0" prefHeight="117.0" prefWidth="376.0" style="-fx-background-color: #6b6767;">
-                    <columns>
-                      <TableColumn prefWidth="182.0" style="-fx-background-color: #339966;" text="NOM HOTEL" />
-                        <TableColumn prefWidth="193.0" style="-fx-background-color: #339966;" text="ETAT" />
-                    </columns>
-                  </TableView>
-                  <Label layoutX="23.0" layoutY="19.0" prefHeight="17.0" prefWidth="72.0" text="PAY" textFill="WHITE" />
-                  <ComboBox layoutX="96.0" layoutY="14.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <Label layoutX="286.0" layoutY="18.0" prefHeight="17.0" prefWidth="72.0" text="VILLE" textFill="WHITE" />
-                  <ComboBox layoutX="348.0" layoutY="13.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <Label layoutX="23.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="CATEGORIE" textFill="WHITE" />
-                  <ComboBox layoutX="96.0" layoutY="73.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <Label layoutX="286.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="ETAT" textFill="WHITE" />
-                  <ComboBox layoutX="348.0" layoutY="73.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-               </children>
-            </Pane>
             <Pane fx:id="pan_chambre" prefHeight="450.0" prefWidth="507.0" style="-fx-background-color: #6b6767;">
                <children>
                   <TableView layoutX="21.0" layoutY="14.0" prefHeight="127.0" prefWidth="468.0" style="-fx-background-color: #6b6767;">
@@ -144,6 +82,68 @@
                   <Button layoutX="373.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="SUPRIMER" textFill="WHITE" />
                   <Button layoutX="237.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="MODIFIE" textFill="WHITE" />
                   <Button layoutX="96.0" layoutY="354.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="AJOUTER" textFill="WHITE" />
+               </children>
+            </Pane>
+            <Pane fx:id="pan_ajouterHotel" prefHeight="450.0" prefWidth="507.0" style="-fx-background-color: #6b6767;">
+               <children>
+                  <Label layoutX="41.0" layoutY="63.0" prefHeight="28.0" prefWidth="93.0" text="PAYS" textFill="#f3f8f5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="paysAjout" layoutX="179.0" layoutY="64.0" onAction="#setVille" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
+                  <Label layoutX="41.0" layoutY="118.0" prefHeight="28.0" prefWidth="93.0" text="VILLE" textFill="#f3f8f5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="villeAjout" layoutX="179.0" layoutY="119.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
+                  <Label layoutX="41.0" layoutY="171.0" prefHeight="28.0" prefWidth="93.0" text="CATEGORIE" textFill="#f3f8f5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="catAjout" layoutX="179.0" layoutY="172.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
+                  <Label layoutX="41.0" layoutY="225.0" prefHeight="28.0" prefWidth="93.0" text="NOM HOTEL" textFill="#f3f8f5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="278.0" prefHeight="28.0" prefWidth="93.0" text="PHONE" textFill="#f3f8f5">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="nomAjout" layoutX="179.0" layoutY="227.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
+                  <TextField fx:id="phoneAjout" layoutX="179.0" layoutY="279.0" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff; -fx-border-radius: 20px;" />
+                  <Button fx:id="buttonAjout" layoutX="179.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#ajouter" prefHeight="25.0" prefWidth="150.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="Ajouter" textFill="#f3f8f5">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="pan_mesHotel" accessibleHelp="ll" prefHeight="450.0" prefWidth="507.0" style="-fx-background-color: #6b6767;">
+               <children>
+                  <Button fx:id="buttonFind" layoutX="85.0" layoutY="158.0" mnemonicParsing="false" onAction="#find" prefHeight="39.0" prefWidth="376.0" style="-fx-background-color: #339966; -fx-border-color: #ffffff;" text="search" textFill="#fcfcfc">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <TableView layoutX="85.0" layoutY="235.0" prefHeight="117.0" prefWidth="376.0" style="-fx-background-color: #6b6767;">
+                    <columns>
+                      <TableColumn prefWidth="182.0" style="-fx-background-color: #339966;" text="NOM HOTEL" />
+                        <TableColumn prefWidth="193.0" style="-fx-background-color: #339966;" text="ETAT" />
+                    </columns>
+                  </TableView>
+                  <Label layoutX="23.0" layoutY="19.0" prefHeight="17.0" prefWidth="72.0" text="PAYS" textFill="WHITE" />
+                  <ComboBox fx:id="paysFind" layoutX="96.0" layoutY="14.0" onAction="#setVilleFind" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <Label layoutX="286.0" layoutY="18.0" prefHeight="17.0" prefWidth="72.0" text="VILLE" textFill="WHITE" />
+                  <ComboBox fx:id="villeFind" layoutX="348.0" layoutY="13.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <Label layoutX="23.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="CATEGORIE" textFill="WHITE" />
+                  <ComboBox fx:id="catFind" layoutX="96.0" layoutY="73.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <Label layoutX="286.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="ETAT" textFill="WHITE" />
+                  <ComboBox fx:id="etatFind" layoutX="348.0" layoutY="73.0" prefHeight="27.0" prefWidth="139.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
                </children>
             </Pane>
          </children>

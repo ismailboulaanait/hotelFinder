@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="455.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/10.0.1" fx:controller="view.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="455.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
@@ -63,30 +63,6 @@
       </Pane>
       <AnchorPane layoutX="206.0" prefHeight="450.0" prefWidth="494.0">
          <children>
-            <Pane fx:id="comment" prefHeight="450.0" prefWidth="494.0" style="-fx-background-color: #6b6767;">
-               <children>
-                  <TableView layoutX="23.0" layoutY="25.0" prefHeight="187.0" prefWidth="455.0">
-                    <columns>
-                      <TableColumn prefWidth="454.0" text="Comments" />
-                    </columns>
-                  </TableView>
-                  <Pane layoutX="32.0" layoutY="267.0" prefHeight="162.0" prefWidth="437.0">
-                     <children>
-                        <Button layoutX="262.0" layoutY="96.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
-                           <font>
-                              <Font size="13.0" />
-                           </font>
-                        </Button>
-                        <TextField layoutX="18.0" layoutY="24.0" prefHeight="57.0" prefWidth="341.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
-                     </children>
-                  </Pane>
-                  <Button layoutX="44.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: 0; -fx-border-color: #339966;" text="Add Comment" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
-               </children>
-            </Pane>
             <Pane fx:id="search" prefHeight="450.0" prefWidth="494.0" style="-fx-background-color: #6b6767;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="151.0" text="Search" textFill="WHITE">
@@ -124,6 +100,30 @@
                   <Button layoutX="151.0" layoutY="411.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #339966;" text="See Comments" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="comment" prefHeight="450.0" prefWidth="494.0" style="-fx-background-color: #6b6767;">
+               <children>
+                  <TableView layoutX="23.0" layoutY="25.0" prefHeight="187.0" prefWidth="455.0">
+                    <columns>
+                      <TableColumn prefWidth="454.0" text="Comments" />
+                    </columns>
+                  </TableView>
+                  <Pane layoutX="32.0" layoutY="267.0" prefHeight="162.0" prefWidth="437.0">
+                     <children>
+                        <Button layoutX="262.0" layoutY="96.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Button>
+                        <TextField layoutX="18.0" layoutY="24.0" prefHeight="57.0" prefWidth="341.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="44.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: 0; -fx-border-color: #339966;" text="Add Comment" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
                      </font>
                   </Button>
                </children>

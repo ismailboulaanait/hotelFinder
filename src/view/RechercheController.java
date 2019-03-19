@@ -25,19 +25,37 @@ public class RechercheController implements Initializable {
     @FXML
     private Pane pan_ajouterHotel;
     @FXML
+    private Pane pan_chambre;
+    @FXML
+    private Pane pan_administretion;
+    @FXML
     private Button btn_mesHotel;
     @FXML
     private Button btn_ajouterHotel;
+    @FXML
+    private Button btn_administration;
+    
+    
     
     @FXML
     private void buttonAction(MouseEvent event){
         if (event.getSource() == btn_mesHotel) {
            pan_mesHotel.setVisible(true);
            pan_ajouterHotel.setVisible(false);
+           pan_chambre.setVisible(false);
+           pan_administretion.setVisible(false);
         }
         if (event.getSource() == btn_ajouterHotel) {
            pan_mesHotel.setVisible(false);
            pan_ajouterHotel.setVisible(true);
+           pan_chambre.setVisible(false);
+           pan_administretion.setVisible(false);
+        }
+        if (event.getSource() == btn_administration) {
+           pan_mesHotel.setVisible(false);
+           pan_ajouterHotel.setVisible(false);
+           pan_chambre.setVisible(false);
+           pan_administretion.setVisible(true);
         }
         
         

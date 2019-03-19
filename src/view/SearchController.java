@@ -5,9 +5,13 @@
  */
 package view;
 
+import helper.HotelHelper;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
+import service.HotelService;
 
 /**
  * FXML Controller class
@@ -16,12 +20,30 @@ import javafx.fxml.Initializable;
  */
 public class SearchController implements Initializable {
 
+   
+    HotelService hotelService=new HotelService();
+    
+    @FXML
+    private TableView hotelTable = new TableView();
+    private HotelHelper hotelFxHelper;
+    private void initHelper(){
+        hotelFxHelper= new HotelHelper(hotelTable, hotelService.findAll());
+    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        initHelper();
     }    
+
+    public TableView getHotelTable() {
+        return hotelTable;
+    }
+
+    public void setHotelTable(TableView hotelTable) {
+        this.hotelTable = hotelTable;
+    }
+    
     
 }

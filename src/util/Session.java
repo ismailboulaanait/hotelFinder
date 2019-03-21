@@ -35,6 +35,9 @@ public class Session {
     public static void registreUser(Object obj) {
 	setAttribut(obj,"user");
 }
+     public static void finSession(){
+        delete("user");
+    } 
     public static Object setAttribut(Object obj, String name) {
         SessionItem sessionItem = new SessionItem();
         sessionItem.setKey(name);

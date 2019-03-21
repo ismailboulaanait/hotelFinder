@@ -13,7 +13,6 @@ public class HotelHelper extends AbstractFxHelper<Hotel> {
 
         titres = new AbstractFxHelperItem[]{
             new AbstractFxHelperItem("NOM HOTEL", "nom"),
-            new AbstractFxHelperItem("hotel", "proprietaire"),
             new AbstractFxHelperItem("PHONE", "phone")};
     }
 

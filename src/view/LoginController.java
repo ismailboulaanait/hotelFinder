@@ -14,7 +14,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -29,7 +32,8 @@ import service.UserService;
  * @author ismail
  */
 public class LoginController implements Initializable {
-
+    
+    
     @FXML
     private Pane home;
     @FXML
@@ -47,9 +51,9 @@ public class LoginController implements Initializable {
     @FXML
     private TextField username;
     @FXML
-    private TextField password;
+    private PasswordField password;
     @FXML
-    private TextField password2;
+    private PasswordField password2;
     @FXML
     private TextField cin;
     @FXML
@@ -58,7 +62,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField usernamelog;
     @FXML
-    private TextField passlog;
+    private PasswordField passlog;
     @FXML
     private Button btnlog;
 
@@ -98,9 +102,13 @@ public class LoginController implements Initializable {
     public void connect(MouseEvent event) {
         int res = userService.connect(usernamelog.getText(), passlog.getText());
         if (res < 0) {
-            JOptionPane.showMessageDialog(null, "invalid username or password", "error", JOptionPane.ERROR_MESSAGE);
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("invalid username or password");
+            alert.showAndWait();
         } else if (res == 1) {
-             try {
+            try {
                 Platform.setImplicitExit(false);
                 Parent root1;
                 root1 = FXMLLoader.load(getClass().getResource("admin.fxml"));
@@ -124,6 +132,13 @@ public class LoginController implements Initializable {
                 e.printStackTrace();
             }
         }
+    }
+    @FXML
+    private Button close;
+    @FXML
+    public void close(MouseEvent event) {
+        Platform.exit();
+        System.exit(0);
     }
 
     /**

@@ -12,7 +12,7 @@ public class ReviewHelper extends AbstractFxHelper<Review> {
     static {
 
         titres = new AbstractFxHelperItem[]{
-            new AbstractFxHelperItem("NOTE", "note"),
+            
             new AbstractFxHelperItem("COMMENTAIRE", "commentaire")};
     }
 

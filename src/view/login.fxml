@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -26,6 +27,11 @@
             <Button fx:id="home_btn" layoutY="2.0" mnemonicParsing="false" onMouseClicked="#buttonAction" prefHeight="43.0" prefWidth="206.0" style="-fx-background-color: 0;" text="Home" textFill="#339966">
                <font>
                   <Font name="System Bold Italic" size="27.0" />
+               </font>
+            </Button>
+            <Button fx:id="close" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#close" style="-fx-background-color: 0;" text="X" textFill="#f80000">
+               <font>
+                  <Font size="14.0" />
                </font>
             </Button>
          </children>
@@ -78,15 +84,15 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="username" layoutX="164.0" layoutY="126.0" prefHeight="25.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
-                  <TextField fx:id="password" layoutX="165.0" layoutY="160.0" prefHeight="25.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
+                  <TextField fx:id="username" layoutX="162.0" layoutY="127.0" prefHeight="25.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
                   <TextField fx:id="cin" layoutX="163.0" layoutY="225.0" prefHeight="25.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
-                  <TextField fx:id="password2" layoutX="164.0" layoutY="193.0" prefHeight="25.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
                   <ImageView fitHeight="88.0" fitWidth="90.0" layoutX="221.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/new-user.png" />
                      </image>
                   </ImageView>
+                  <PasswordField fx:id="password" layoutX="162.0" layoutY="161.0" prefHeight="27.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
+                  <PasswordField fx:id="password2" layoutX="162.0" layoutY="194.0" prefHeight="27.0" prefWidth="206.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
                </children>
             </Pane>
             <Pane fx:id="login" prefHeight="450.0" prefWidth="496.0" style="-fx-background-color: #6b6767;">
@@ -107,12 +113,12 @@
                      </font>
                   </Button>
                   <TextField fx:id="usernamelog" layoutX="169.0" layoutY="147.0" prefHeight="27.0" prefWidth="199.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
-                  <TextField fx:id="passlog" layoutX="169.0" layoutY="202.0" prefHeight="27.0" prefWidth="199.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
                   <ImageView fitHeight="67.0" fitWidth="67.0" layoutX="229.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../assets/man-user.png" />
                      </image>
                   </ImageView>
+                  <PasswordField fx:id="passlog" layoutX="170.0" layoutY="202.0" prefHeight="25.0" prefWidth="199.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-text-inner-color: #ffffff;" />
                </children>
             </Pane>
          </children>

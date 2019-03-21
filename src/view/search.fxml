@@ -5,7 +5,6 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="455.0" prefWidth="668.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="442.0" prefWidth="694.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
@@ -59,35 +58,46 @@
                   <Separator layoutY="22.0" prefHeight="9.0" prefWidth="114.0" />
                </children>
             </Pane>
+            <Button fx:id="toannonce" layoutY="148.0" mnemonicParsing="false" onMouseClicked="#toannonce" prefHeight="66.0" prefWidth="206.0" style="-fx-border-radius: 0; -fx-background-color: 0;" text="MES ANNONCE" textFill="#339966">
+               <font>
+                  <Font name="Arial" size="22.0" />
+               </font>
+            </Button>
+            <Button fx:id="singout" layoutX="2.0" layoutY="241.0" mnemonicParsing="false" onMouseClicked="#sngout" prefHeight="43.0" prefWidth="179.0" style="-fx-background-color: 0;" text="SIGN OUT" textFill="#339966">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <AnchorPane layoutX="206.0" prefHeight="450.0" prefWidth="494.0">
          <children>
-            <Pane fx:id="comment" prefHeight="450.0" prefWidth="494.0" style="-fx-background-color: #6b6767;">
+            <Pane fx:id="comment" prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #6b6767;">
                <children>
-                  <TableView layoutX="23.0" layoutY="25.0" prefHeight="187.0" prefWidth="455.0">
-                    <columns>
-                      <TableColumn prefWidth="454.0" text="Comments" />
-                    </columns>
+                  <TableView fx:id="tableComment" layoutX="23.0" layoutY="25.0" prefHeight="208.0" prefWidth="455.0">
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
                   </TableView>
-                  <Pane layoutX="32.0" layoutY="267.0" prefHeight="162.0" prefWidth="437.0">
+                  <Pane layoutX="32.0" layoutY="240.0" prefHeight="189.0" prefWidth="437.0">
                      <children>
-                        <Button layoutX="262.0" layoutY="96.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
+                        <Button fx:id="addComment" layoutX="322.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#addComment" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <TextField layoutX="18.0" layoutY="24.0" prefHeight="57.0" prefWidth="341.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
+                        <TextField fx:id="textComment" layoutX="18.0" layoutY="59.0" prefHeight="57.0" prefWidth="401.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
+                        <Label layoutX="27.0" layoutY="30.0" prefHeight="21.0" prefWidth="97.0" text="Commenter" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnret" layoutX="18.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#retour" text="&lt;-- retour" />
                      </children>
                   </Pane>
-                  <Button layoutX="44.0" layoutY="225.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: 0; -fx-border-color: #339966;" text="Add Comment" textFill="WHITE">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
-            <Pane fx:id="search" prefHeight="450.0" prefWidth="494.0" style="-fx-background-color: #6b6767;">
+            <Pane fx:id="search" prefHeight="450.0" prefWidth="500.0" style="-fx-background-color: #6b6767;">
                <children>
                   <Label layoutX="14.0" layoutY="14.0" prefHeight="25.0" prefWidth="151.0" text="Search" textFill="WHITE">
                      <font>
@@ -102,25 +112,25 @@
                      </graphic>
                   </Label>
                   <Separator layoutY="55.0" prefHeight="9.0" prefWidth="133.0" style="-fx-background-color: #339966;" />
-                  <Button layoutX="132.0" layoutY="186.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="FIND" textFill="WHITE" />
+                  <Button fx:id="find" layoutX="132.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#find" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="FIND" textFill="WHITE" />
                   <Label layoutX="14.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="COUNTRY" textFill="WHITE" />
                   <Label layoutX="253.0" layoutY="78.0" prefHeight="17.0" prefWidth="72.0" text="MIN PRICE" textFill="WHITE" />
                   <Label layoutX="14.0" layoutY="114.0" prefHeight="17.0" prefWidth="72.0" text="CITY" textFill="WHITE" />
                   <Label layoutX="253.0" layoutY="114.0" prefHeight="17.0" prefWidth="72.0" text="MAX PRICE" textFill="WHITE" />
                   <Label layoutX="253.0" layoutY="155.0" prefHeight="17.0" prefWidth="72.0" text="NBR OF PERS" textFill="WHITE" />
                   <Label layoutX="14.0" layoutY="154.0" prefHeight="17.0" prefWidth="72.0" text="CATEGORY" textFill="WHITE" />
-                  <ComboBox layoutX="76.0" layoutY="74.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <ComboBox layoutX="76.0" layoutY="110.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <ComboBox layoutX="76.0" layoutY="150.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <TextField layoutX="331.0" layoutY="74.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <TextField layoutX="331.0" layoutY="110.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <TextField layoutX="331.0" layoutY="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
-                  <Button layoutX="151.0" layoutY="411.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #339966;" text="See Comments" textFill="WHITE">
+                  <ComboBox fx:id="payes" layoutX="76.0" layoutY="74.0" onAction="#setVille" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <ComboBox fx:id="ville" layoutX="76.0" layoutY="110.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <ComboBox fx:id="cat" layoutX="76.0" layoutY="150.0" prefWidth="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <TextField fx:id="min" layoutX="331.0" layoutY="74.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <TextField fx:id="max" layoutX="331.0" layoutY="110.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <TextField fx:id="place" layoutX="331.0" layoutY="150.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" />
+                  <Button fx:id="btncomment" layoutX="151.0" layoutY="411.0" mnemonicParsing="false" onMouseClicked="#setComments" prefHeight="25.0" prefWidth="214.0" style="-fx-background-color: #339966;" text="See Comments" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>
                   </Button>
-                  <TableView fx:id="hotelTable" layoutX="78.0" layoutY="242.0" prefHeight="110.0" prefWidth="401.0">
+                  <TableView fx:id="hotelTable" layoutX="78.0" layoutY="242.0" prefHeight="131.0" prefWidth="401.0">
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
@@ -129,5 +139,10 @@
             </Pane>
          </children>
       </AnchorPane>
+      <Button fx:id="close" layoutX="10.0" layoutY="9.0" mnemonicParsing="false" onMouseClicked="#close" style="-fx-background-color: 0;" text="X" textFill="#f80000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

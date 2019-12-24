@@ -32,8 +32,7 @@ import service.UserService;
  * @author ismail
  */
 public class LoginController implements Initializable {
-    
-    
+
     @FXML
     private Pane home;
     @FXML
@@ -116,11 +115,15 @@ public class LoginController implements Initializable {
                 stage.setScene(new Scene(root1));
                 stage.initStyle(StageStyle.TRANSPARENT);
                 stage.show();
+                Stage stages = (Stage) btnlog.getScene().getWindow();
+                stages.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (res == 2) {
             try {
+                
+                
                 Platform.setImplicitExit(false);
                 Parent root1;
                 root1 = FXMLLoader.load(getClass().getResource("search.fxml"));
@@ -128,6 +131,8 @@ public class LoginController implements Initializable {
                 stage.setScene(new Scene(root1));
                 stage.initStyle(StageStyle.TRANSPARENT);
                 stage.show();
+                Stage stages = (Stage) btnlog.getScene().getWindow();
+                stages.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -135,6 +140,7 @@ public class LoginController implements Initializable {
     }
     @FXML
     private Button close;
+
     @FXML
     public void close(MouseEvent event) {
         Platform.exit();

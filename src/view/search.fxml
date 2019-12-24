@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="442.0" prefWidth="694.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SearchController">
+<AnchorPane id="AnchorPane" prefHeight="431.0" prefWidth="693.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SearchController">
     <stylesheets>
         <URL value="@search.css" />
     </stylesheets>
@@ -81,18 +81,19 @@
                   </TableView>
                   <Pane layoutX="32.0" layoutY="240.0" prefHeight="189.0" prefWidth="437.0">
                      <children>
-                        <Button fx:id="addComment" layoutX="322.0" layoutY="137.0" mnemonicParsing="false" onMouseClicked="#addComment" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
+                        <Button fx:id="addComment" layoutX="339.0" layoutY="65.0" mnemonicParsing="false" onMouseClicked="#addComment" prefHeight="31.0" prefWidth="89.0" style="-fx-background-color: 0; -fx-border-color: #339966; -fx-border-radius: 10px;" text="OK" textFill="WHITE">
                            <font>
                               <Font size="13.0" />
                            </font>
                         </Button>
-                        <TextField fx:id="textComment" layoutX="18.0" layoutY="59.0" prefHeight="57.0" prefWidth="401.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
+                        <TextField fx:id="textComment" layoutX="14.0" layoutY="59.0" prefHeight="43.0" prefWidth="321.0" style="-fx-background-color: 0; -fx-border-radius: 20px; -fx-border-color: #339966;" />
                         <Label layoutX="27.0" layoutY="30.0" prefHeight="21.0" prefWidth="97.0" text="Commenter" textFill="WHITE">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Label>
                         <Button fx:id="btnret" layoutX="18.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#retour" text="&lt;-- retour" />
+                        <Button fx:id="reserve" layoutX="355.0" layoutY="156.0" mnemonicParsing="false" onMouseClicked="#reserve" text="Réservé" />
                      </children>
                   </Pane>
                </children>

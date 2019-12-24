@@ -5,16 +5,20 @@
  */
 package view;
 
+import bean.Chambre;
 import bean.Hotel;
 import bean.HotelType;
 import bean.Pays;
 import bean.Review;
 import bean.User;
 import bean.Ville;
+import helper.ChambreHelper;
 import helper.HotelHelper;
 import helper.ReviewHelper;
 import java.net.URL;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
@@ -28,17 +32,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javax.swing.JOptionPane;
 import service.ChambreService;
 import service.HotelService;
 import service.HotelTypeService;
 import service.PaysService;
+import service.ReservationService;
 import service.ReviewService;
 import service.VilleService;
 import util.Session;
@@ -55,6 +60,10 @@ public class SearchController implements Initializable {
     List<HotelType> hotelTypes = new ArrayList();
     @FXML
     private Button toannonce;
+    @FXML
+    private Button fin;
+    @FXML
+    private Button retour2;
     //==============services====================
     PaysService ps = new PaysService();
     VilleService vs = new VilleService();
@@ -62,15 +71,25 @@ public class SearchController implements Initializable {
     HotelService hs = new HotelService();
     ReviewService rs = new ReviewService();
     ChambreService cs = new ChambreService();
+    ReservationService res = new ReservationService();
 
     //==========helpers===========================
     private HotelHelper hh;
     private ReviewHelper rh;
+    private ChambreHelper ch;
     //===============search=======================
+    @FXML
+    private DatePicker date1;
+    @FXML
+    private DatePicker date2;
+    @FXML
+    private Button reserve;
     @FXML
     private Pane comment;
     @FXML
     private TableView tableComment = new TableView();
+    @FXML
+    private TableView chambreDispo = new TableView();
     @FXML
     private TableView hotelTable = new TableView();
     @FXML
@@ -99,9 +118,10 @@ public class SearchController implements Initializable {
     private Pane search;
     @FXML
     private Button singout;
-    
+
     @FXML
     private Button close;
+
     @FXML
     public void close(MouseEvent event) {
         Platform.exit();
@@ -117,6 +137,7 @@ public class SearchController implements Initializable {
         initComboBoxTypeHotel();
         initComboBoxPays();
         initTableComment();
+        initTableReservation();
     }
 
     @FXML
@@ -129,29 +150,114 @@ public class SearchController implements Initializable {
             stage.setScene(new Scene(root1));
             stage.initStyle(StageStyle.TRANSPARENT);
             stage.show();
+            Stage stages = (Stage) toannonce.getScene().getWindow();
+            stages.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     @FXML
     public void retour(MouseEvent event) {
-      search.toFront();
+        search.toFront();
     }
-    
+
+    @FXML
+    public void retour2(MouseEvent event) {
+        try {
+            Platform.setImplicitExit(false);
+            Parent root1;
+            root1 = FXMLLoader.load(getClass().getResource("search.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.show();
+            Stage stages = (Stage) retour2.getScene().getWindow();
+            stages.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    public void confirmer(MouseEvent event) {
+        Date datea = Date.from(date1.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date dated = Date.from(date2.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+
+//        System.out.println("date ===> "+datea.toString());
+        List<Chambre> res = cs.searchChambreReservation((Hotel) Session.getHotelCourant(), datea, dated);
+
+        if (res == null) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("pas de chambres disponibles ... ");
+            alert.showAndWait();
+        } else {
+            for (Chambre chambre : res) {
+                System.out.println(chambre);
+            }
+//            res.reserver(new Date(), datea, dated, (User) Session.getConnectedUser(), chambres.get(0));
+            ch.setList(res);
+        }
+    }
+
+    @FXML
+    public void fin(MouseEvent event) {
+        Date datea = Date.from(date1.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Date dated = Date.from(date2.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+        Chambre c = ch.getSelected();
+        if (c == null) {
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("merci de choisir une chambre  ");
+            alert.showAndWait();
+        } else {
+            res.reserver(new Date(), datea, dated, (User) Session.getConnectedUser(), c);
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.setTitle("Warning Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("reservation effctue");
+            alert.showAndWait();
+            ch.setList(new ArrayList());
+        }
+    }
+
+    @FXML
+    public void reserve(MouseEvent event) {
+        try {
+            Platform.setImplicitExit(false);
+            Parent root1;
+            root1 = FXMLLoader.load(getClass().getResource("reservation.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.show();
+            Stage stages = (Stage) reserve.getScene().getWindow();
+            stages.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void sngout(MouseEvent event) {
         Session.finSession();
         try {
-                Platform.setImplicitExit(false);
-                Parent root1;
-                root1 = FXMLLoader.load(getClass().getResource("login.fxml"));
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root1));
-                stage.initStyle(StageStyle.TRANSPARENT);
-                stage.show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            Platform.setImplicitExit(false);
+            Parent root1;
+            root1 = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.initStyle(StageStyle.TRANSPARENT);
+            stage.show();
+            Stage stages = (Stage) singout.getScene().getWindow();
+            stages.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -223,6 +329,7 @@ public class SearchController implements Initializable {
     @FXML
     public void setComments(MouseEvent event) {
         Hotel hotel = hh.getSelected();
+        Session.registreHotel(hotel);
         List<Review> res = rs.searchReviewByHotel(hotel);
         rh.setList(res);
         comment.toFront();
@@ -267,6 +374,10 @@ public class SearchController implements Initializable {
 
     private void initTableComment() {
         rh = new ReviewHelper(tableComment);
+    }
+
+    private void initTableReservation() {
+        ch = new ChambreHelper(chambreDispo);
     }
 
 }

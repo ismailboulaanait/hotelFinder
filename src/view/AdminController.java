@@ -122,6 +122,8 @@ public class AdminController implements Initializable {
                 stage.setScene(new Scene(root1));
                 stage.initStyle(StageStyle.TRANSPARENT);
                 stage.show();
+                Stage stages = (Stage) singout.getScene().getWindow();
+                stages.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
